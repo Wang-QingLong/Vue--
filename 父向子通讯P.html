@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父向子通讯</title>
+</head>
+<body>
+<!--玩一个明显一点的父向子通讯，难一点的 -->
+<div id="app">
+    <!--将vue根里面的info属性赋值给user,user再赋值给props,典型的父向子通讯-->
+
+<!--    注意，写edit="true"之所以会是true是因为在js里面，只要不为null都是true,也正是因为它是弱类型语言，所以即使输入字符串的1000也会转换成数字1000，这样写控制台会报错，因为类型是boolean,所以这个时候需要用v-bind 来转换,使用v-bind在父向子通讯时，不一定是从父类拿，有时候就是用来转换类型的 -->
+
+<!--   v-bind  的省略写法是 :  -->
+    <jubuzujian v-bind:user=info  v-bind:edit="true" :number="1000"></jubuzujian>
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+</body>
+<script>
+    //父向子通讯使用子的props属性，子向父通讯需要调父的方法，下面是父向子通讯
+
+    //局部组件
+
+    //注意：props后面接数据用[]，接对象用{}
+
+    var jubuzujian = {
+        template: `
+<div>
+           我写的这道题是{{edit?"对的":"错的"}}<br>
+           我考了{{number}}分 <br>
+        <button>我是{{user.name}},我今年{{user.age}},我在学{{user.like}}</button>
+</div>
+        `,
+        props: {
+            user: {
+                type: Object,
+                default: {}
+            },
+            edit: {
+                type: Boolean,
+                default: false
+            },
+            number:{
+                type:Number,
+                default:100
+            }
+        }
+    };
+
+
+    new Vue({
+        el: "#app",
+        data: {
+            info: {
+                name: "张飞",
+                age: 18,
+                like: "java"
+            }
+        },
+        components: {
+            jubuzujian
+        }
+
+
+    });
+
+
+</script>
+</html>

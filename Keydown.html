@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>V-on Keydown</title>
+</head>
+<body>
+<dev id="app">
+    {{msg}}
+    <input type="text" v-on:keydown="check($event)">
+
+</dev>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {msg: ""},
+        methods: {
+
+            check(event) {
+               this.msg=event.keyCode;
+
+            }
+
+        }
+
+
+    });
+
+
+</script>
+
+</html>

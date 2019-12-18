@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子向父通讯，必须需要父向子传递方法</title>
+</head>
+
+<!--流程：点击局部组件里面的Increase方法，触发它自己内部的Increase方法，接着调用
+this.$emit("jia")也就是父类传递的方法，也就是调用addnumber方法，达到子向父传值的目的，
+但是在开发中，如果隔了十几个，传来传去会晕，所以建议统一方法名，也就是都叫同一个名字，方便查阅-->
+<body>
+<div id="app">
+    我高考考了{{number}}分
+
+    <heima8 @jia="addnumber" @jian="jiannumber"></heima8>
+
+</div>
+
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+
+    var heima8 = {
+        template: `
+        <div>
+<button @click="Increase">点我加分</button><br>
+<button @click="reduce">点我减分</button>
+        </div>
+        `,
+        methods: {
+            Increase() {
+                this.$emit("jia")
+            },
+            reduce() {
+                this.$emit("jian")
+            }
+        }
+
+
+    };
+
+    //根
+    new Vue({
+        el: "#app",
+        data: {
+            number: 100
+        },
+        methods: {
+            addnumber() {
+               this.number++;
+            },
+            jiannumber() {
+              this.number--;
+            }
+
+        },
+        components:{
+            heima8
+        }
+
+
+    });
+
+
+</script>
+
+
+</html>

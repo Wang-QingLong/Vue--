@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<dev id="app">
+    {{msg}}
+    <heima88></heima88>
+    <heima88></heima88>
+    <heima88></heima88>
+</dev>
+
+
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    //Vue组件：  template相当于app中的el,而el对应的是app 即template里面就是写html的，template里面必须是双标记
+    //组件相当于是一个div ,heima88是组件的名字
+    //template里面只能有一个根，所以要写多个就在前面加一个div
+    //Vue.component里面能写的属性和vue里面能写的属性是一样的，比如data,methods，
+    //vue里面的data属性，里面写的key-value属性值，因为对应的是有且仅有一个div ,所以没问题，但是
+    //组件里面data不一样，它对应的是多个，一改属性就会全部改掉，就好比每个相同的对象，每个对象的属性都是独立不同的，所以
+    //我们要以方法的形式定义，因为每个对象在方法区里面的属性也是独立的 ，
+    Vue.component("heima88", {
+        template:
+            `
+<div>
+        <button>我是{{name}}</button>
+
+</div>
+        `,
+        data() {
+            return {name: "刘德华"}
+        },
+        methods: {}
+    });
+
+
+    new Vue({
+        el: "#app",
+        data: {
+            msg: "好好学习"
+        }
+
+
+    });
+
+
+</script>
+</html>

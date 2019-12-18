@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击按钮事件</title>
+</head>
+<body>
+
+
+<dev id="app">
+    {{msg}}
+    <button v-on:click="check('雷凯狗逼')">点我切换</button>
+
+</dev>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {msg: "李斌狗逼"},
+        methods: {
+            check(msg) {
+                this.msg = msg;
+            }
+        }
+
+
+    });
+
+
+</script>
+</html>

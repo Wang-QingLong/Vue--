@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<heima></heima>
+    <br>
+<heima></heima>
+    <br>
+<heima></heima>
+    <br>
+<heima></heima>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+</body>
+<script>
+
+    //局部组件，在声明的时候并不知道自己是组件，只是一个普通的js对象，注册给根对象后才能使用
+    //局部组件对比全局组件： 全局组件，启动就全部加载，如果有一些 用不上，会导致浪费，
+    //而局部组件，只能注册后才能使用也就说需要时就用，提高了资源利用率，所以开发时几乎都是选择
+    //局部组件来使用
+
+    var heima={
+        template:
+            ` <button @click="num++">数字为：{{num}}</button> `
+        ,
+        data(){
+            return {num:10}
+    }
+    };
+
+
+
+    new Vue({
+        el:"#app",
+        components:{   //注册局部组件
+            heima
+        }
+
+
+
+
+    });
+
+
+
+</script>
+</html>

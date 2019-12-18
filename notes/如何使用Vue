@@ -1,0 +1,26 @@
+         vue官网 ：https://cn.vuejs.org/
+         Git地址：https://github.com/vuejs
+
+第一步：先下载node.js   下载地址：https://nodejs.org/en/   推荐下载LTS版本。
+       (Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。)
+
+下载完成之后输入命令  node -v 和   npm -v 可以查看两个版本
+
+第二步：  安装nrm ,因为node.js自带了npm,而npm默认的仓库在国外，自己本身切换镜像很麻烦，所以安装nrm   注意：    npm 是node.js的模块管理工具，而nrm 是npm切换镜像源的工具
+
+
+     npm install nrm -g       安装nrm，这里-g代表全局安装。
+
+     通过nrm ls命令查看npm的仓库列表,带*的就是当前选中的镜像仓库
+     通过nrm use taobao来指定要使用的镜像源：
+     通过nrm test npm来测试速度：
+
+第三步： 重启电脑
+
+
+然后就是使用了，使用很简单，先创建一个空的静态web工程,输入命令
+
+   先输入：npm init -y 进行初始化
+   安装Vue，输入命令：npm install vue --save
+
+创建html ,导入vue.js  <script src="node_modules/vue/dist/vue.js"></script>
